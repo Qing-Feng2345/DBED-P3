@@ -1,9 +1,15 @@
 This question is worth 1.5 marks
 
 Question:
-Suppose that you are given source code for a DBMS that does not support indexing. This code was extensively tested, so we have a high degree of confidence that it works correctly. Now you were asked to extend the code, such that the indexing is supported. How would you test your extended code to make sure it works properly with indexing? Note that you don't need to provide any additional code for this question, just the answer.
+Suppose that you are given source code for a DBMS that does not support indexing.
+This code was extensively tested, so we have a high degree of confidence that it works correctly.
+Now you were asked to extend the code, such that the indexing is supported.
+How would you test your extended code to make sure it works properly with indexing?
+Note that you don't need to provide any additional code for this question, just the answer.
 
 *** It is important to justify / explain your answer ***
 
 Answer:
-... your answer here ...
+For correctness, I would first test by comparing the results between indexed and non-indexed queries.
+Then, I will validate updates/deletes propagate to indexes, stress edge cases like the empty, small, large tables, and duplicates.
+Finally, I am going to check the performance improvements, and ensuring robustness under concurrency and recovery.
