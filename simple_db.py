@@ -106,15 +106,15 @@ class SimpleDatabase:
 
         col_id = self.columns[column_name]
 
+    # -----------------------------------------------------------------
         if self.b_trees and self.b_trees[col_id] is not None:
-            rows = self.b_trees[col_id].search(column_value)
-            # search() might return None or a single row; make sure it’s a list
-            if rows is None:
+            result = self.b_trees[col_id].search_key(column_value)
+            if result is None:
                 return self.header, []
-            if isinstance(rows, list):
-                return self.header, rows
-            else:
-                return self.header, [rows]
+            node, i = result
+            rows = node.key_vals[i][1]  # <-- actual list of rows
+            return self.header, rows
+    # -----------------------------------------------------------------
 
         selected_rows = []
         for row in self.rows:
